@@ -1,4 +1,4 @@
-import mmcv
+import mmengine
 import os
 import json
 import numpy as np
@@ -270,7 +270,7 @@ if __name__ == '__main__':
     wwtool.mkdir_or_exist(filtered_label_path)
 
     filter_count = 1
-    progress_bar = mmcv.ProgressBar(len(os.listdir(origin_label_path)))
+    progress_bar = mmengine.utils.progressbar.ProgressBar(len(os.listdir(origin_label_path)))
     for label_name in os.listdir(origin_label_path):
         image_objects = wwtool.simpletxt_parse(os.path.join(origin_label_path, label_name))
         filtered_objects = []
